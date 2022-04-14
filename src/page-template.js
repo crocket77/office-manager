@@ -1,3 +1,30 @@
+const generateOffice = office => {
+
+  const generateManager= manager=>{
+  return`
+  <div class="card emp-card">
+    <div class="card-header">
+      <h2 class="card-title">${manager.getName()}</h2>
+      <h3 class="card-title">${manager.getRole()}</h3>
+    </div>
+    <section class="card-body">
+        <ul class="list-group">
+            <li class="list-item">ID: ${manager.getId()}</li>
+            <li class="list-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+            <li class="list-item">Office number: ${manager.getOfficeNumber()}</li>
+        </ul>
+    </section>
+  </div>
+  `
+  }
+
+}
+
+//   const engineer= 
+
+
+
+
 // create the about section
 const generateAbout = aboutText => {
   if (!aboutText) {

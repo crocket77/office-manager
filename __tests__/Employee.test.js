@@ -1,6 +1,5 @@
 const Employee = require('../lib/Employee.js');
-// const Player = require('../lib/Employee.js');
-// const Potion = require('../lib/Potion.js');
+
 
 // jest.mock('../lib/Potion.js');
 
@@ -10,7 +9,36 @@ test('creates a employee object', () => {
   expect(emp.name).toBe('Dave');
   expect((emp.id).toString()).toEqual(expect.any(String));
   expect(emp.email).toEqual(expect.any(String));
+  expect(emp.role).toEqual(expect.any(String));
+});
+
+test('returns employee name', () => {
+  const emp = new Employee('Dave', 1,'dave@company.com','manager');
+
+  expect(emp.getName()).toBe('Dave');
+
   
+});
+
+test('returns employee ID', () => {
+  const emp = new Employee('Dave', 1,'dave@company.com','manager');
+
+  expect(emp.getId().toString()).toBe('1');
+
+});
+
+test('returns employee email', () => {
+  const emp = new Employee('Dave', 1,'dave@company.com','manager');
+
+  expect(emp.getEmail()).toBe('dave@company.com');
+
+});
+
+test('returns employee role', () => {
+  const emp = new Employee('Dave', 1,'dave@company.com','manager');
+
+  expect(emp.getRole()).toBe('manager');
+
 });
 
 
