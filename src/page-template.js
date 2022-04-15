@@ -1,4 +1,4 @@
-const generateManager= manager=>{
+const getManager= manager=>{
   console.log("******",manager)
   return`
   <div class="card emp-card">
@@ -18,7 +18,7 @@ const generateManager= manager=>{
 }
 
 
-function generateEngineer(engine){
+function getEngineers(engine){
   if(engine.length===0){
     return`
     <div class="card emp-card"> No Engineers in the office</div>
@@ -27,10 +27,10 @@ function generateEngineer(engine){
     return`
       ${engine
         .map(eng=>{return`
-          <div class="card emp-card mt-1">
+          <div class="card emp-card">
             <div class="card-header">
               <h2 class="card-title">${eng.getName()}</h2>
-              <h3 class="card-title">${eng.getRole()}</h3>
+              <h3 class="card-title">${eng.getRole()} ${eng.getId()}</h3>
             </div>
             <section class="card-body">
                 <ul class="list-group">
@@ -47,7 +47,7 @@ function generateEngineer(engine){
 }
 
 
-function  generateIntern(intern){
+function  getInterns(intern){
     console.log("-----------",intern)
     if(intern.length===0){
       return`
@@ -57,10 +57,10 @@ function  generateIntern(intern){
       return `${intern.map(({name,id,email,school,role})=>{
       
       return`
-      <div class="card emp-card mt-1">
+      <div class="card emp-card ">
         <div class="card-header">
           <h2 class="card-title">${name}</h2>
-          <h3 class="card-title">${role}</h3>
+          <h3 class="card-title">${role} ${id}</h3>
         </div>
         <section class="card-body">
             <ul class="list-group">
@@ -96,9 +96,9 @@ function office(management,engineers,interns){
     </center>
 
       <main class="team">
-        ${generateManager(management)}
-        ${generateEngineer(engineers)}
-        ${generateIntern(interns)}
+        ${getManager(management)}
+        ${getEngineers(engineers)}
+        ${getInterns(interns)}
       </main>
     </body>
     </html>`
