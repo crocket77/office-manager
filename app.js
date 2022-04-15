@@ -34,7 +34,7 @@ async function initManager() {
         message: 'What is the Office Id?'
       }
     ]).then(mData=>{
-         return new Manager(mData.name, mData.managerID, mData.managerEmail, mData.officeNumber);
+         return new Manager(mData.name, mData.managerID, mData.managerEmail, mData.officeNumber,"Manager");
     })
 }
 
@@ -71,7 +71,7 @@ async function menuChoice(){
             name: 'github',
             message: "What is the engineers's github?"
           }
-        ]).then(data=>{engineerArr.push(new Engineer(data.name, data.id, data.email, data.github));})
+        ]).then(data=>{engineerArr.push(new Engineer(data.name, data.id, data.email, data.github,'Engineer'));})
         .then(()=>{
            console.log(engineerArr)
            return menuChoice();
@@ -102,7 +102,7 @@ async function menuChoice(){
             message: "What school did the intern go to?"
           }
         ]).then(data=>{
-             internArr.push(new Intern(data.name, data.id, data.email, data.school));
+             internArr.push(new Intern(data.name, data.id, data.email, data.school,'Intern'));
         }).then(()=>{
               console.log(internArr)
               return menuChoice();
@@ -122,9 +122,8 @@ initManager()
   .then(manager=>{
     menuChoice()
      .then(()=>{
-      copyFile()
-      writeFile(generatePage(manager,engineerArr,internArr)).then(()=>{
-    })
+      copyFile();
+      writeFile(generatePage(manager,engineerArr,internArr))
   })
 })
 
